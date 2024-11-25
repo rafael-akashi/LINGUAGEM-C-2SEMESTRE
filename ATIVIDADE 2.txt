@@ -1,0 +1,163 @@
+1-SOMA DOS N PRIMEIROS NUMEROS PRIMOS   
+// RAFAEL AKASHI FRANÇA 
+
+#include <stdio.h>
+
+int primo(int num);
+int somaPrimos(int n);
+
+int main() {
+    int n;
+    printf("Digite o valor de N: ");
+    scanf("%d", &n);
+    printf("A soma dos primeiros %d números primos é: %d\n", n, somaPrimos(n));
+    return 0;
+}
+
+int primo(int num) {
+    if (num < 2) return 0;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return 0;
+    }
+    return 1;
+}
+
+int somaPrimos(int n) {
+    int count = 0, num = 2, soma = 0;
+    while (count < n) {
+        if (primo(num)) {
+            soma += num;
+            count++;
+        }
+        num++;
+    }
+    return soma;
+}
+
+A principal dificuldade que tive foi verificar se estava correto , principalmente ao usar um exemplo com um número grande
+
+
+
+
+
+
+
+2-Média aritmética das turmas de uma escola
+ 
+// RAFAEL AKASHI FRANÇA
+
+#include <stdio.h>
+
+float mediaTurma(int numAlunos);
+float mediaEscola(int numTurmas);
+
+int main() {
+    int numTurmas;
+    printf("Digite o número de turmas: ");
+    scanf("%d", &numTurmas);
+    printf("A média geral da escola é: %.2f\n", mediaEscola(numTurmas));
+    return 0;
+}
+
+float mediaTurma(int numAlunos) {
+    float soma = 0;
+    for (int i = 0; i < numAlunos; i++) {
+        float nota;
+        printf("Digite a nota do aluno %d: ", i + 1);
+        scanf("%f", &nota);
+        soma += nota;
+    }
+    return soma / numAlunos;
+}
+
+float mediaEscola(int numTurmas) {
+    float somaMedia = 0;
+    for (int i = 0; i < numTurmas; i++) {
+        int numAlunos;
+        printf("Digite o número de alunos na turma %d: ", i + 1);
+        scanf("%d", &numAlunos);
+        somaMedia += mediaTurma(numAlunos);
+    }
+    return somaMedia / numTurmas;
+}
+
+A dificuldade que tive foi na hora de testar, pois se coloco numero grande de sala e numero grande de aluno por sala, acaba que tem bastante entrada e ai confunde um pouco, mas funcionou
+
+3- SOMA DE DOIS NUMEROS INTEIROS
+ 
+// RAFAEL AKASHI FRANÇA
+
+#include <stdio.h>
+
+int soma(int a, int b);
+
+int main() {
+    int num1, num2;
+    printf("Digite o primeiro número: ");
+    scanf("%d", &num1);
+    printf("Digite o segundo número: ");
+    scanf("%d", &num2);
+    printf("A soma é: %d\n", soma(num1, num2));
+    return 0;
+}
+
+int soma(int a, int b) {
+    return a + b;
+}
+
+A dificuldade foi mais a questao de usar uma função para apresentar o resultado, no caso o int soma
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4- SOMA DE 3 NUMEROS INTEIROS ARMAZENANDO NO VETOR
+ 
+// RAFAEL AKASHI FRANÇA
+
+#include <stdio.h>
+
+
+int somaVetor(int vetor[], int tamanho);
+
+int main() {
+    int vetor[3];  
+    printf("Digite três números inteiros:\n");
+
+
+    for (int i = 0; i < 3; i++) {
+        printf("Número %d: ", i + 1);
+        scanf("%d", &vetor[i]);
+    }
+
+   
+    int resultado = somaVetor(vetor, 3);
+    printf("A soma dos valores é: %d\n", resultado);
+
+    return 0;
+}
+
+int somaVetor(int vetor[], int tamanho) {
+    int soma = 0;
+    for (int i = 0; i < tamanho; i++) {
+        soma += vetor[i];
+    }
+    return soma;
+}
+
+Tive um pouco de dificuldade para entender o uso do vetor, mas depois consegui entender melhor
